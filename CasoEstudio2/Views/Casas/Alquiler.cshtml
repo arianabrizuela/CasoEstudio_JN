@@ -1,0 +1,37 @@
+﻿@model List<CasoEstudio2.Models.CasasModel>
+
+<h2>Alquiler de Casas</h2>
+
+<form method="post" asp-action="Alquiler">
+    <div class="form-group">
+        <label>Casa</label>
+        <select name="IdCasa" class="form-control" id="casaSelect" onchange="updatePrice()">
+            @foreach (var casa in Model)
+            {
+                <option value="@casa.IdCasa" data-precio="@casa.PrecioCasa">@casa.DescripcionCasa</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Precio</label>
+        <input type="text" id="precio" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" name="UsuarioAlquiler" class="form-control" required />
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Alquilar</button>
+</form>
+
+<script>
+    function updatePrice() {
+        var select = document.getElementById("casaSelect");
+        var precio = select.options[select.selectedIndex].getAttribute("data-precio");
+        document.getElementById("precio").value = precio;
+    }
+    updatePrice();
+</script>

@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sistema de Alquiler de Casas</h1>
+    <p>Bienvenido, selecciona una opción para continuar:</p>
+
+    <div class="mt-4">
+        <a asp-controller="Casas" asp-action="Alquiler" class="btn btn-primary btn-lg m-2">
+            Ir a Alquiler
+        </a>
+
+        <a asp-controller="Casas" asp-action="Consultas" class="btn btn-secondary btn-lg m-2">
+            Ir a Consultas
+        </a>
+    </div>
+</div>
